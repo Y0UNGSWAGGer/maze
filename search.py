@@ -169,7 +169,7 @@ class DepthFirstSearchAgent(SearchAgent):
                 if i == 0:
                     # 如果一次试探里该数保持零，则说明走到了死胡同,就弹出solution的这步错路，但note仍保持
                     solution.pop()
-
+#younger
                     # print(test)
 
 
