@@ -207,6 +207,7 @@ class MazeSearchProblem(search.SearchProblem):
         Returns true is the given state corresponds
         to an unblocked and valid maze position
         """
+        #可行则返回true 否则false
         x, y = state
         if x < 0 or x >= self.maze.getNumRows():
             return False
@@ -223,6 +224,7 @@ class MazeSearchProblem(search.SearchProblem):
         from the original state and the cost is 1.0 for each
         """
         # Update Search Stats
+        #若对一个方块调用这个函数，则表明这个方块已被探索
         self.numNodesExpanded += 1
         self.expandedNodeSet[state] = 1
         states = []
@@ -238,6 +240,8 @@ class MazeSearchProblem(search.SearchProblem):
 
         # So successors appear in order (Right,Down,Left,Up)
         states.reverse()
+        #简单的倒序
+
         return [(x, self.getCost(x)) for x in states if self.__isValidState(x)]
 
     def getCost(self, state):

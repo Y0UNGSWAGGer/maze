@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0d65564-889b-4a12-b5a5-e27057b51bdd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mazeworld.py" beforeDir="false" afterPath="$PROJECT_DIR$/mazeworld.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,39 +11,67 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maze.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mazeworld.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="164" column="14" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-                <element signature="e#1970#2146#0" />
-                <element signature="e#2185#2361#0" />
-                <element signature="e#2402#2586#0" />
-                <element signature="e#2626#2882#0" />
-                <element signature="e#2922#3192#0" />
-                <element signature="e#3232#3502#0" />
-                <element signature="e#3538#3622#0" />
-                <element signature="e#3658#3741#0" />
-                <element signature="e#3779#3871#0" />
-                <element signature="e#3908#3998#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/maze.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="171">
+                  <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/mazeworld.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-893">
+                  <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
+                  <folding>
+                    <element signature="e#0#59#0" expanded="true" />
+                    <element signature="e#123#4450#0" />
+                    <element signature="e#1970#2146#0" />
+                    <element signature="e#2185#2361#0" />
+                    <element signature="e#2402#2586#0" />
+                    <element signature="e#2626#2882#0" />
+                    <element signature="e#2922#3192#0" />
+                    <element signature="e#3232#3502#0" />
+                    <element signature="e#3538#3622#0" />
+                    <element signature="e#3658#3741#0" />
+                    <element signature="e#3779#3871#0" />
+                    <element signature="e#3908#3998#0" />
+                    <element signature="e#4966#5022#0" />
+                    <element signature="e#5066#5130#0" />
+                    <element signature="e#5177#5538#0" />
+                    <element signature="e#5584#6321#0" />
+                    <element signature="e#6361#6844#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/search.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="154">
+                  <caret line="144" selection-start-line="144" selection-end-line="150" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                    <element signature="e#84#1463#0" />
+                    <element signature="e#1489#2087#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -151,12 +178,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576652521308</updated>
-      <workItem from="1576652523496" duration="516000" />
+      <workItem from="1576652523496" duration="1467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="516000" />
+    <option name="totallyTimeSpent" value="1467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -199,12 +226,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="144" selection-start-line="144" selection-end-line="150" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#84#1463#0" />
+            <element signature="e#1489#2087#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mazeworld.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="164" column="14" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
+        <state relative-caret-position="-893">
+          <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
+            <element signature="e#123#4450#0" />
             <element signature="e#1970#2146#0" />
             <element signature="e#2185#2361#0" />
             <element signature="e#2402#2586#0" />
@@ -215,6 +255,11 @@
             <element signature="e#3658#3741#0" />
             <element signature="e#3779#3871#0" />
             <element signature="e#3908#3998#0" />
+            <element signature="e#4966#5022#0" />
+            <element signature="e#5066#5130#0" />
+            <element signature="e#5177#5538#0" />
+            <element signature="e#5584#6321#0" />
+            <element signature="e#6361#6844#0" />
           </folding>
         </state>
       </provider>
