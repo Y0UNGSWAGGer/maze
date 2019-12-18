@@ -1,12 +1,12 @@
-import mazeworld
+import mazeworld as  mz
 
 if __name__ == "__main__":
-    simpleMaze = mazeworld.Maze(
+    simpleMaze = mz.Maze(
     [['#', ' ', ' ', 'S'], ['~', ' ', ' ', ' '], [' ', ' ', ' ', 'E']])
     
     print(simpleMaze)
-    simpleMazeAgent = mazeworld.DepthFirstSearchAgent()
+    simpleMazeAgent = mz.DepthFirstSearchAgent()
 
-    mazeworld.testAgentOnMaze(simpleMazeAgent, simpleMaze)
+    mz.testAgentOnMaze(simpleMazeAgent, simpleMaze)
 
 

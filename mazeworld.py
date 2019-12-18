@@ -56,6 +56,7 @@ class Maze:
         Returns true if the (x,y) cell
         is passable, i.e is a ' ' or '~'
         """
+        #判断是否可行
         return self.isWater(x, y) or self.isClear(x, y)
 
     def isWater(self, x, y):
@@ -66,6 +67,7 @@ class Maze:
         Returns true if the (x,y) cell
         is water, i.e is a '~'
         """
+        #ez
         return self.grid[x][y] == '~'
 
     def isClear(self, x, y):
@@ -76,6 +78,7 @@ class Maze:
         Returns true if the (x,y) cell
         is clear, i.e is a ' '
         """
+        #ez
         return self.grid[x][y] == ' '
 
     def isBlocked(self, x, y):
@@ -86,6 +89,7 @@ class Maze:
         Returns true if the (x,y) cell
         is blocked, i.e has a '#' char
         """
+        #ez
         return self.grid[x][y] == '#'
 
     def setBlock(self, x, y):
@@ -158,6 +162,7 @@ class Maze:
             rowLine = '|' + ''.join(row) + '|'
             lines.append(rowLine)
         lines.append(headerLine)
+        #加个头和尾
         return '\n'.join(lines)
 
     def __str__(self):
