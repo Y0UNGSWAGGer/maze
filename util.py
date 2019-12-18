@@ -33,6 +33,16 @@ class Stack:
     """
     return len(self.list) == 0
 
+  def __getAsciiString(self):
+    lines=[]
+    for term in self.list:
+      lines.append(term)
+    return str(lines)
+
+  def __str__(self):
+    return self.__getAsciiString()
+
+
 class Queue:
   """
     Data structure that implements a first-in-first-out (FIFO)

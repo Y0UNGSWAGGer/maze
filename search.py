@@ -15,7 +15,7 @@ class SearchProblem:
         """
         Returns the start state for the search problem
         """
-        abstract
+        # abstract
 
     def getSuccessors(self, state):
         """
@@ -25,7 +25,7 @@ class SearchProblem:
         where 'successor' is a successor to the current state and
         'stepCost' is the incremental cost of expanding to that successor
         """
-        abstract
+        # abstract
 
     def isGoalState(self, state):
         """
@@ -33,7 +33,7 @@ class SearchProblem:
 
         Returns True if and only if the state is a valid goal state
         """
-        abstract
+        # abstract
 
     # These methods are used to evaluate SearchAgents
 
@@ -44,7 +44,7 @@ class SearchProblem:
           expanded (how many times getSuccessors is called) and
           how many are discovered (found as a successor)
         """
-        abstract
+        # abstract
 
     def resetSearchStats(self):
         """
@@ -52,7 +52,7 @@ class SearchProblem:
           search statistics. All search agents should
           call this method before doing any searching
         """
-        abstract
+        # abstract
 
 
 class SearchAgent:
@@ -73,7 +73,7 @@ class SearchAgent:
         All subclasses should also first call searchProblem.resetSearchStats()
         before doing any searching.
         """
-        abstract
+        # abstract
 
 
 ## Specific Search Agents
@@ -85,6 +85,92 @@ class DepthFirstSearchAgent(SearchAgent):
 
     Implements depth-first graph search for a given problem.
     """
+
+    def solve(self, msp):
+        solution = []
+        test = util.Stack()
+        # test即DFS所用到的栈
+        note = []
+        # note记录所有已经探索过的结点，其中包含走不通的路径
+        cost = 0.0
+        cell = msp.getStartState()
+        # 一些init的工作
+
+        # while True:
+        #     solution.append(cell)
+        #     if mazeSearchProblem.isGoalState(cell):
+        #         return solution, cost
+        #     nextCell, nextCost = None, 0.0
+        #     for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+        #         delta_y = successor[1] - cell[1]
+        #         if delta_y == 1:  # right
+        #             nextCell = successor
+        #             nextCost = stepCost
+        #             break
+        #     for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+        #         delta_x = successor[0] - cell[0]
+        #         if delta_x == 1:  # down
+        #             nextCell = successor
+        #             nextCost = stepCost
+        #             break
+        #     for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+        #         delta_y = successor[1] - cell[1]
+        #         if delta_y == -1:  # left
+        #             nextCell = successor
+        #             nextCost = stepCost
+        #             break
+        #     for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+        #         delta_x = successor[0] - cell[0]
+        #         if delta_x == -1:  # up
+        #             nextCell = successor
+        #             nextCost = stepCost
+        #             break
+        #     if nextCell != None:
+        #         cell = nextCell
+        #         cost += nextCost
+        #     else:
+        #         print("SimpleMazeAgent: Can't move right, quitting")
+        #         return (None, 0.0)
+        test.push(cell)
+        note.append(cell)
+        # solution.append(cell)
+        while True:
+            if test.isEmpty():
+                # 栈空了也莫得，就无解
+                print("迷宫无解")
+                solution = []
+                cost = 0.0
+                return (solution, cost)
+
+            test_cell = test.pop()
+            # test_cost=test_cost_note.pop()
+            # print(solution)        just for debug
+            solution.append(test_cell)
+            note.append(test_cell)
+            # 每出栈一个，就代表走了一步，所以要记在note里，同时也记在solution里
+            # 但如果这条路错了，下文会处理将这个结点从solution里弹出
+            cell = solution[-1]
+            have_try = msp.getSuccessors(test_cell)
+            # 即是对刚加入solution的这个结点调用自带的方法进行试探
+            if msp.isGoalState(cell):
+                # 成功
+                for term in solution:
+                    cost = cost + msp.getCost(term)
+                return solution, cost
+            else:
+                i = 0
+                # 这个i即是为了记录所有未经探索过的新结点数目
+
+                for successor, stepCost in have_try:
+                    if successor not in note:
+                        i = i + 1
+                        # print(successor)
+                        test.push(successor)
+                if i == 0:
+                    # 如果一次试探里该数保持零，则说明走到了死胡同,就弹出solution的这步错路，但note仍保持
+                    solution.pop()
+
+                    # print(test)
 
 
 class BreadthFirstSearchAgent(SearchAgent):

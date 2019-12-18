@@ -79,7 +79,7 @@ class Maze:
         is clear, i.e is a ' '
         """
         #ez
-        return self.grid[x][y] == ' '
+        return self.grid[x][y] == '_'
 
     def isBlocked(self, x, y):
         """
@@ -155,11 +155,17 @@ class Maze:
         """
           Returns a display string for the maze
         """
+        #定义展示时的格式
         lines = []
-        headerLine = ' ' + ('-' * (self.numCols)) + ' '
+        headerLine = ' ' + ('*' * (self.numCols)) + ' '
         lines.append(headerLine)
         for row in self.grid:
-            rowLine = '|' + ''.join(row) + '|'
+            rowLine=[]
+            for term in row:
+                rowLine.append(term)
+                rowLine.append(' ')
+            rowLine = '|' + ''.join(rowLine) + '|'
+
             lines.append(rowLine)
         lines.append(headerLine)
         #加个头和尾
@@ -243,6 +249,7 @@ class MazeSearchProblem(search.SearchProblem):
         #简单的倒序
 
         return [(x, self.getCost(x)) for x in states if self.__isValidState(x)]
+        # 返回的已经是可行的结点
 
     def getCost(self, state):
         """
@@ -285,46 +292,46 @@ class DepthFirstSearchAgent(search.SearchAgent):
     Implements depth-first graph search for a given problem.
     """
 
-    def solve(self, mazeSearchProblem):
-        solution = []
-        cost = 0.0
-        cell = mazeSearchProblem.getStartState()
-        while True:
-            solution.append(cell)
-            if mazeSearchProblem.isGoalState(cell):
-                return solution, cost
-            nextCell, nextCost = None, 0.0
-            for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
-                delta_y = successor[1] - cell[1]
-                if delta_y == 1:  # right
-                    nextCell = successor
-                    nextCost = stepCost
-                    break
-            for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
-                delta_x = successor[0] - cell[0]
-                if delta_x == 1:  # down
-                    nextCell = successor
-                    nextCost = stepCost
-                    break
-            for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
-                delta_y = successor[1] - cell[1]
-                if delta_y == -1:  # left
-                    nextCell = successor
-                    nextCost = stepCost
-                    break
-            for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
-                delta_x = successor[0] - cell[0]
-                if delta_x == -1:  # up
-                    nextCell = successor
-                    nextCost = stepCost
-                    break
-            if nextCell != None:
-                cell = nextCell
-                cost += nextCost
-            else:
-                print("SimpleMazeAgent: Can't move right, quitting")
-                return (None, 0.0)
-    ## Simple Maze Agent
+    # def solve(self, mazeSearchProblem):
+    #     solution = []
+    #     cost = 0.0
+    #     cell = mazeSearchProblem.getStartState()
+    #     while True:
+    #         solution.append(cell)
+    #         if mazeSearchProblem.isGoalState(cell):
+    #             return solution, cost
+    #         nextCell, nextCost = None, 0.0
+    #         for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+    #             delta_y = successor[1] - cell[1]
+    #             if delta_y == 1:  # right
+    #                 nextCell = successor
+    #                 nextCost = stepCost
+    #                 break
+    #         for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+    #             delta_x = successor[0] - cell[0]
+    #             if delta_x == 1:  # down
+    #                 nextCell = successor
+    #                 nextCost = stepCost
+    #                 break
+    #         for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+    #             delta_y = successor[1] - cell[1]
+    #             if delta_y == -1:  # left
+    #                 nextCell = successor
+    #                 nextCost = stepCost
+    #                 break
+    #         for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+    #             delta_x = successor[0] - cell[0]
+    #             if delta_x == -1:  # up
+    #                 nextCell = successor
+    #                 nextCost = stepCost
+    #                 break
+    #         if nextCell != None:
+    #             cell = nextCell
+    #             cost += nextCost
+    #         else:
+    #             print("SimpleMazeAgent: Can't move right, quitting")
+    #             return (None, 0.0)
+    # ## Simple Maze Agent
 
 
 class SimpleMazeAgent(search.SearchAgent):
@@ -336,15 +343,20 @@ class SimpleMazeAgent(search.SearchAgent):
         solution = []
         cost = 0.0
         cell = mazeSearchProblem.getStartState()
+        #基本的init
         # Move to the right as long as we can
         while True:
+            #print(1)
             solution.append(cell)
+            #把当前块放入solution中
             if mazeSearchProblem.isGoalState(cell):
                 return solution, cost
+            #判断是否完成
             nextCell, nextCost = None, 0.0
             for successor, stepCost in mazeSearchProblem.getSuccessors(cell):
+                print(successor)
                 delta_y = successor[0] - cell[0]
-                if delta_y == 1:  # Right
+                if delta_y == 1:  # 下
                     nextCell = successor
                     nextCost = stepCost
                     break
